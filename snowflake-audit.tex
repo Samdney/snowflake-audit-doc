@@ -1,0 +1,92 @@
+% ================================================================================
+\documentclass{amsart}
+
+%     If your article includes graphics, uncomment this command.
+\usepackage{graphicx}
+\usepackage{comment}
+\usepackage{url}
+\usepackage{hyperref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{xca}[theorem]{Exercise}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\numberwithin{equation}{section}
+
+%    Absolute value notation
+\newcommand{\abs}[1]{\lvert#1\rvert}
+
+%    Blank box placeholder for figures (to avoid requiring any
+%    particular graphics capabilities for printing this document).
+\newcommand{\blankbox}[2]{%
+  \parbox{\columnwidth}{\centering
+%    Set fboxsep to 0 so that the actual size of the box will match the
+%    given measurements more closely.
+    \setlength{\fboxsep}{0pt}%
+    \fbox{\raisebox{0pt}[#2]{\hspace{#1}}}%
+  }%
+}
+% ================================================================================
+\begin{document}
+% ================================================================================
+\title{Snowflake audit\\ -\\ \small{Snapshot}}
+% ================================================================================
+\author{Carolin Z\"obelein}
+\address{Carolin Z\"obelein, Independent mathematical scientist, Josephsplatz 8, 90403 N\"urnberg, Germany, \url{https://research.carolin-zoebelein.de}}
+%\curraddr{}
+\email{contact@carolin-zoebelein.de, PGP: D4A7 35E8 D47F 801F 2CF6 2BA7 927A FD3C DE47 E13B}
+\thanks{The author believes in the importance of the independence of research and is funded by the public community. If you also believe in this values, you can find ways for supporting the author's work here: \url{https://research.carolin-zoebelein.de/crowdfunding.html}}
+% ================================================================================
+%\subjclass[2000]{Primary 54C40, 14E20; Secondary 46E25, 20C20}	% TODO
+\date{Last change: \today, Status: Draft}
+\dedicatory{This paper is dedicated to all the brave snowflakes who die every year during winter.}
+%\keywords{Differential geometry, algebraic geometry}	% TODO
+% ================================================================================
+%\begin{abstract} % TODO
+%	STATUS: DRAFT
+%\end{abstract}
+% ================================================================================
+\maketitle
+% ================================================================================
+\section*{Preamble}
+\label{s:preamble}
+% --------------------------------------------------------------------------------
+The following document is for discussion purposses only. It gives no warranty for completeness and correctness.
+% ================================================================================
+\section{Introduction}
+\label{s:introduction}
+% --------------------------------------------------------------------------------
+
+
+
+
+
+% ================================================================================
+\section{Conclusion}
+\label{s:conclusion}
+% --------------------------------------------------------------------------------
+
+
+
+
+% ================================================================================
+% TODO
+\bibliographystyle{amsplain} % TODO
+% ================================================================================
+\section*{License}
+\label{s:license}
+% --------------------------------------------------------------------------------
+\begin{center}
+	\includegraphics{by-nc-nd.png} \\
+	\url{https://creativecommons.org/licenses/by-nc-nd/4.0/}
+\end{center}
+% ================================================================================
+\end{document}
+% ================================================================================

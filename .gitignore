@@ -1,0 +1,7 @@
+mystuff/
+makepdf
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
