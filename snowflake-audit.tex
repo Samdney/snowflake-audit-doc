@@ -6,6 +6,7 @@
 \usepackage{comment}
 \usepackage{url}
 \usepackage{hyperref}
+\usepackage{float}
 
 \usepackage{listings}
 \lstset{
@@ -67,9 +68,9 @@ showstringspaces=false
 \dedicatory{This paper is dedicated to all the brave snowflakes who die every year during winter.}
 %\keywords{Differential geometry, algebraic geometry}	% TODO
 % ================================================================================
-%\begin{abstract} % TODO
-%	STATUS: DRAFT
-%\end{abstract}
+\begin{abstract} % TODO
+	STATUS: DRAFT
+\end{abstract}
 % ================================================================================
 \maketitle
 % ================================================================================
@@ -109,6 +110,28 @@ Given are the following main parts of the package:
 \end{itemize}
 
 d= directory, f=file.
+% --------------------------------------------------------------------------------
+\subsection{Interaction structure}
+\label{ss:interactionstructure}
+% --------------------------------------------------------------------------------
+In figure \ref{fig:interactionstructure} you can see the interaction structure between the different parts of Snowflake.
+
+\begin{figure}[H]
+\centering
+    \includegraphics[width=0.8\textwidth]{images/snowflake-schematic.png}
+\caption{Schematic graphic of the interaction structure of Snowflake. Taken from \cite{SnowflakeSchematic}.}
+\label{fig:interactionstructure}
+\end{figure}
+
+\begin{itemize}
+    \item [1a.] The client makes a request to the broker.
+    \item [1b.] The appengine reflects the domain-fronted request from the client to the broker.
+    \item [2a.] The broker matches the client with proxies.
+    \item [2b.] The broker passes the client's WebRTC session descriptions.
+    \item [3.] The broker gives an answer about the matching proxy to the client.
+    \item [4.] The client uses WebRTC for the connection to the given proxy.
+    \item [5.] Finally, the client connects to a bridge over WebRTC.
+\end{itemize}
 % ================================================================================
 \section{Conclusion}
 \label{s:conclusion}
