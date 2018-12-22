@@ -5,3 +5,4 @@ makepdf
 *.blg
 *.log
 *.out
+*.toc
