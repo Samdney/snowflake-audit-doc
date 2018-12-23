@@ -76,6 +76,7 @@ showstringspaces=false
 % ================================================================================
 \tableofcontents
 % ================================================================================
+\newpage
 \section*{Preamble}
 \label{s:preamble}
 % --------------------------------------------------------------------------------
@@ -101,13 +102,13 @@ At first, let's have a first look at the basic package structure of Snowflake \c
 % --------------------------------------------------------------------------------
 Given are the following main parts of the package:
 \begin{itemize}
-    \item \textbf{appengine (d):} Runs an Google App Engine and reflects domain-fronted requests from a client to the Snowflake broker.
-    \item \textbf{broker (d):} Handles the rendezvous by matching Snowflake clients with proxies. It passes the client's WebRTC session descriptions. So the clients and proxies can establish a peer connection.
-    \item \textbf{client (d):} Tor client component of Snowflake.
-    \item \textbf{proxy (d):} Browser proxy component of Snowflake.
-    \item \textbf{proxy-go (d):} Standalone version of the Snowflake proxy.
-    \item \textbf{server (d):} Server transport plugin for Snowflake. The client connects to the proxy using WebRTC and the proxy connects to the server using WebSocket.
-    \item \textbf{server-webrtc (d):} WebRTC server plugin which uses an HTTP server that simulates the interaction that a client would have with the broker, for direct testing.
+    \item \textbf{appengine (d)}: Runs an Google App Engine and reflects domain-fronted requests from a client to the Snowflake broker.
+    \item \textbf{broker (d)}: Handles the rendezvous by matching Snowflake clients with proxies. It passes the client's WebRTC session descriptions. So the clients and proxies can establish a peer connection.
+    \item \textbf{client (d)}: Tor client component of Snowflake.
+    \item \textbf{proxy (d)}: Browser proxy component of Snowflake.
+    \item \textbf{proxy-go (d)}: Standalone version of the Snowflake proxy.
+    \item \textbf{server (d)}: Server transport plugin for Snowflake. The client connects to the proxy using WebRTC and the proxy connects to the server using WebSocket.
+    \item \textbf{server-webrtc (d)}: WebRTC server plugin which uses an HTTP server that simulates the interaction that a client would have with the broker, for direct testing.
     \item \textbf{CONTRIBUTING.md (f), LICENSE (f), README.md (f):} Standard package files.
 \end{itemize}
 
@@ -138,7 +139,69 @@ In figure \ref{fig:interactionstructure} you can see the interaction structure b
 \section{Client}
 \label{s:client}
 % --------------------------------------------------------------------------------
-In the following sections we will do an raw audit of the Snowflake client.
+In the following sections we will do a raw audit of the Snowflake client.
+% --------------------------------------------------------------------------------
+\subsection{README and torrc files}
+\label{ss:readmeandtorrcfiles}
+% --------------------------------------------------------------------------------
+Given are the \textit{README.md}, \textit{torrc}, \textit{torrc-localhost} and \textit{torrc-manual} files which contain similar content.
+
+\begin{figure}[H]
+\begin{lstlisting}[frame=single, language=C, caption=torrc-Config: Standard values]
+UseBridges 1
+DataDirectory datadir
+
+Bridge snowflake 0.0.3.0:1
+\end{lstlisting}
+\label{fig:torrcconfigstandardvalues}
+\end{figure}
+
+In listing \ref{fig:torrcconfigstandardvalues} are defined the three standard values \cite{TorStableManual}.
+\begin{itemize}
+    \item \textbf{UseBridges 1}: Tor will fetch descriptors for bridges.
+    \item \textbf{DataDirectory datadir}: Store working data in datadir. Can not be changed while tor is running.
+    \item \textbf{Bridge snowflake 0.0.3.0:1}: When set along with UseBridges, instructs Tor to use the relay at "IP:ORPort" as a "bridge" relaying into the Tor network. If "transport" is provided, it must match a ClientTransportPlugin line. We then use that pluggable transport’s proxy to transfer data to the bridge, rather than connecting to the bridge directly.
+\end{itemize}
+
+The Snowflake client torrc default values are
+
+\begin{figure}[H]
+\begin{lstlisting}[frame=single, language=C, caption=torrc-Config: Snowflake client default values]
+ClientTransportPlugin snowflake exec ./client \
+-url https://snowflake-broker.azureedge.net/ \
+-front ajax.aspnetcdn.com \
+-ice stun:stun.l.google.com:19302
+\end{lstlisting}
+\label{fig:torrcconfigsnowflakeclientdefault}
+\end{figure}
+
+and can also be found in the client-\textit{README.md} \cite{SnowflakeGitClient}
+
+\begin{itemize}
+    \item \textbf{-url}: Should be the URL of a Broker instance. This is required to have
+automated signalling (which is desired in most use cases).
+When omitted, the client uses copy-paste signalling instead.
+    \item \textbf{-front}: An optional front domain for the Broker request.
+    \item \textbf{-ice }: A comma-separated list of ICE servers. These can be STUN or TURN
+servers.
+\end{itemize}
+
+. Additionally the following values can be set (see also \textit{snowflake.go} \cite{SnowflakeGitClient}).
+
+\begin{figure}[H]
+\begin{lstlisting}[frame=single, language=C, caption=torrc-Config: Snowflake client additional values]
+-max 3
+-log snowflake.log
+\end{lstlisting}
+\label{fig:torrcconfigsnowflakeclientadditional}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{-max}: Capacity for number of multiplexed WebRTC peers.
+    \item \textbf{-log}: Name of log file.
+
+\end{itemize}
+.
 % ================================================================================
 \section{Conclusion}
 \label{s:conclusion}
