@@ -142,7 +142,7 @@ In figure \ref{fig:interactionstructure} you can see the interaction structure b
 In the following sections we will do a raw audit of the Snowflake client.
 % --------------------------------------------------------------------------------
 \subsection{README and torrc files}
-\label{ss:readmeandtorrcfiles}
+\label{ss:clientreadmeandtorrcfiles}
 % --------------------------------------------------------------------------------
 Given are the \textit{README.md}, \textit{torrc}, \textit{torrc-localhost} and \textit{torrc-manual} files which contain similar content.
 
@@ -215,6 +215,21 @@ In the following sections we will do a raw audit of the Snowflake appengine.
 \label{s:proxygo}
 % --------------------------------------------------------------------------------
 In the following sections we will do a raw audit of Snowflake's proxy-go.
+% --------------------------------------------------------------------------------
+\subsection{README}
+\label{ss:proxygoreadme}
+% --------------------------------------------------------------------------------
+Given is a \textit{README} file \cite{SnowflakeGitProxyGo} with the following content
+
+\begin{figure}[H]
+\begin{lstlisting}[frame=single, language=C, caption=proxy-go README]
+This is a standalone (not browser-based) version of the Snowflake proxy.
+
+Usage: ./proxy-go
+\end{lstlisting}
+\label{fig:proxygoreadme}
+\end{figure}
+. \textbf{Audit comment:} The \textit{README} file needs improvement.
 % ================================================================================
 \section{Server}
 \label{s:server}
