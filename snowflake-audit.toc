@@ -11,6 +11,7 @@
 \contentsline {section}{\tocsection {}{6}{Proxy-go}}{4}{section.6}
 \contentsline {subsection}{\tocsubsection {}{6.1}{README}}{4}{subsection.6.1}
 \contentsline {section}{\tocsection {}{7}{Server}}{4}{section.7}
-\contentsline {section}{\tocsection {}{8}{Conclusion}}{5}{section.8}
+\contentsline {section}{\tocsection {}{8}{Summary}}{5}{section.8}
+\contentsline {section}{\tocsection {}{9}{Conclusion}}{5}{section.9}
 \contentsline {section}{\tocsection {}{}{References}}{5}{section*.3}
 \contentsline {section}{\tocsection {}{}{License}}{5}{section*.4}
