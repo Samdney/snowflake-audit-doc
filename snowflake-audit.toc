@@ -6,6 +6,7 @@
 \contentsline {subsection}{\tocsubsection {}{2.3}{Interaction structure}}{2}{subsection.2.3}
 \contentsline {section}{\tocsection {}{3}{Client}}{3}{section.3}
 \contentsline {subsection}{\tocsubsection {}{3.1}{README and torrc files}}{3}{subsection.3.1}
-\contentsline {section}{\tocsection {}{4}{Conclusion}}{4}{section.4}
+\contentsline {section}{\tocsection {}{4}{Broker}}{4}{section.4}
+\contentsline {section}{\tocsection {}{5}{Conclusion}}{4}{section.5}
 \contentsline {section}{\tocsection {}{}{References}}{4}{section*.3}
 \contentsline {section}{\tocsection {}{}{License}}{4}{section*.4}
